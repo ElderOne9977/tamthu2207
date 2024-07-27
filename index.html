@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thân Gửi</title>
+    <style>
+        body {
+            background-image: url('https://nhandaovadoisong.com.vn/wp-content/uploads/2019/05/hinh-nen-den-21-1024x576.jpg'); /* Đặt URL của hình ảnh nền */
+            background-position: center; /* Đặt hình ảnh ở giữa */
+            color: #FFFFFF; /* Đặt màu chữ để dễ đọc trên nền hình ảnh */
+            font-family: Arial, sans-serif; /* Đặt font chữ */
+            padding: 20px; /* Đặt khoảng cách padding */
+            text-align: center; /* Căn giữa nội dung */
+        }
+        #output {
+            font-size: 2em; /* Gấp đôi kích thước chữ */
+            line-height: 2em; /* Đặt khoảng cách giữa mỗi dòng */
+            margin-top: 20px; /* Đặt khoảng cách margin phía trên */
+        }
+        .message {
+            opacity: 0; /* Bắt đầu với độ mờ bằng 0 */
+            transition: opacity 1s ease-in; /* Thêm hiệu ứng chuyển đổi mờ dần trong 1 giây */
+        }
+        .visible {
+            opacity: 1; /* Khi thêm lớp .visible, độ mờ sẽ thành 1 */
+        }
+    </style>
+</head>
+<body>
+    <div id="output"></div>
+    <script>
+        const messages = [
+            "Chào bạn!",
+            "Xin lỗi vì sự chậm trễ này.",
+            "Mặc dù đã hơi muộn…",
+            "Mình vẫn phải nói lên điều này.",
+            "Mình tưởng im lặng sẽ là sự giải thoát…",
+            "Nhưng mình nhận ra…",
+            "Im lặng chính là cầm tù.",
+            "Không biết bạn đã thích ai khác chưa.",
+            "Nếu chưa thì…",
+            "Không nên thích mình, không nên coi mình là đối tượng.",
+            "Điều đó sẽ còn đau khổ hơn cả việc yêu xa.",
+            "Không phải vì mình có ai khác hay thích một ai khác, mà…",
+            "Khác với nhiều bạn học, mình không ở nội thành.",
+            "Mình ở ngoại thành, không gần với nội thành.",
+            "Hơn nữa…",
+            "Vì điều kiện không cho phép nên mình chỉ được ra khỏi trường vào chủ nhật.",
+            "Mình từng nghĩ việc không chấp nhận là sự phũ phàng lớn nhất đối với bạn.",
+            "Nhưng có lẽ việc chấp nhận mới thật sự phũ phàng.",
+            "Bởi vì mình không tin mối quan hệ này có thể bền chắc.",
+            "Bạn có thể coi đây là những lời nói suông…",
+            "Những lời giảo biện…",
+            "Vỏ bọc cho sự mục nát…",
+            "Mình xin phép được làm kẻ xấu.",
+            "Xin lỗi bạn!"
+        ];
+
+        let index = 0;
+        function showMessage() {
+            if (index < messages.length) {
+                const messageElement = document.createElement('div');
+                messageElement.textContent = messages[index];
+                messageElement.className = 'message';
+                document.getElementById('output').appendChild(messageElement);
+                // Thêm lớp 'visible' sau một khoảng thời gian ngắn để kích hoạt hiệu ứng mờ dần
+                setTimeout(() => {
+                    messageElement.classList.add('visible');
+                }, 100); // 100ms delay
+                index++;
+                setTimeout(showMessage, 2000); // Đợi 2 giây trước khi hiển thị thông điệp tiếp theo
+            }
+        }
+        showMessage();
+    </script>
+</body>
+</html>
